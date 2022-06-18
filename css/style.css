@@ -1,18 +1,7 @@
-/* Start Global Rules */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-}
-
-
-html {
-    scroll-behavior: smooth;
 }
 
 :root {
@@ -23,7 +12,7 @@ html {
     --veryDarkBlue: hsl(234, 12%, 34%);
     --grayishBlue: hsl(229, 6%, 66%);
     --veryLightGray: hsl(0, 0%, 98%);
-    --whiteColor: #ffffff;
+    --whiteColor: hsl(0, 0%, 100%);
 }
 
 body {
@@ -33,140 +22,162 @@ body {
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 100%;
-    padding: 0 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Small */
-@media (min-width: 375px) {
+/*Small*/
+@media(min-width: 576px) {
     .container {
-        width: 375px;
+        width: 540px
     }
 }
 
 @media (min-width: 768px) {
     .container {
-        width: 750px;
+        width: 720px
     }
 }
 
-/* Medium */
-@media (min-width: 992px) {
+@media(min-width: 992px) {
     .container {
-        width: 970px;
+        width: 960px
     }
 }
 
-/* Large */
-@media (min-width: 1200px) {
+@media(min-width: 1200px) {
     .container {
-        width: 1230px;
+        width: 1180px
     }
 }
 
+@media(min-width: 1440px) {
+    .container {
+        width: 1320px
+    }
+}
+
+/*Start header Section*/
 header {
     padding-top: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     line-height: 1.6;
 }
 
 header h1 {
-    margin-bottom: 8px;
+    font-size: 27px;
     font-weight: 300;
     color: var(--grayishBlue);
-    font-size: 1.7em;
 }
 
 header h2 {
-    margin-bottom: 12px;
-    font-size: 1.7em;
+    font-size: 27px;
     color: var(--veryDarkBlue);
+    margin-top: 8px;
+    margin-bottom: 12px;
 }
 
 header p {
     color: var(--grayishBlue);
+    font-size: 17px;
+    font-weight: 300;
     width: 100%;
-    max-width: 500px;
+    max-width: 555px;
+    margin: 0 auto;
 }
 
+/*End header Section*/
+/* Start cards Section  */
 .cards {
     margin-top: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .cards .card {
     background-color: var(--whiteColor);
-    margin-bottom: 25px;
-    border-radius: 8px;
-    padding: 29px 25px 22px 29px;
-    -webkit-box-shadow: 0px 5px 10px 0px rgba(216, 226, 238, 0.75);
-    -moz-box-shadow: 0px 5px 10px 0px rgba(216, 226, 238, 0.75);
-    box-shadow: 0px 5px 10px 0px rgba(216, 226, 238, 0.75);
-    max-width: 350px;
+    padding: 29px 25px;
     width: 100%;
+    max-width: 352px;
+    margin: 0 auto 25px auto;
+    border-radius: 10px;
+    border-top: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(216, 226, 238, .75);
+}
+
+.cards .card:nth-last-of-type(1) {
+    border-color: var(--cyanColor);
+}
+
+.cards .card:nth-last-of-type(2) {
+    border-color: var(--redColor);
+}
+
+.cards .card:nth-last-of-type(3) {
+    border-color: var(--blueColor);
+}
+
+.cards .card:nth-last-of-type(4) {
+    border-color: var(--orangeColor);
 }
 
 .cards .card h3 {
     color: var(--veryDarkBlue);
-    margin-bottom: 12px;
 }
 
 .cards .card p {
-    margin-bottom: 36px;
     color: var(--grayishBlue);
-    font-size: 0.8em;
+    font-size: 13px;
+    letter-spacing: .5px;
+    line-height: 1.8;
+    margin: 12px 0 36px 0;
 }
 
-.cards .card .icon img {
+.cards .card img {
     display: block;
     margin-left: auto;
 }
 
-.cards .card:nth-of-type(1) {
-    border-top: 2px solid var(--cyanColor);
+/* End cards Section  */
+/*Responsive*/
+@media(min-width: 768px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 352px);
+        column-gap: 25px;
+        justify-content: center;
+    }
 }
 
-.cards .card:nth-of-type(2) {
-    border-top: 2px solid var(--redColor);
-}
+@media(min-width: 1200px) {
+    header {
+        padding-top: 50px
+    }
 
-.cards .card:nth-of-type(3) {
-    border-top: 2px solid var(--blueColor);
-}
-
-.cards .card:nth-of-type(4) {
-    border-top: 2px solid var(--orangeColor);
-}
-
-/* Large */
-@media (min-width: 1020px) {
     header h1 {
-        font-size: 2.4em;
+        font-size: 36px
     }
 
     header h2 {
-        font-size: 2.4em;
+        font-size: 36px;
+        margin-top: 0;
     }
-    
+
     .cards {
+        margin-top: 50px;
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
+        gap: 0;
     }
-    
+
     .cards .card {
-        margin-left: 30px;
+        margin-left: 25px;
+        margin-right: 0;
     }
-    
-    .cards .push {
+
+    .cards .down {
         transform: translateY(50%);
     }
 }
